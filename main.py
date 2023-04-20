@@ -30,4 +30,4 @@ async def on_member_remove(member):
         embed=disnake.Embed(description=f'Пользователь {member} вышел из круга', color=disnake.Color.yellow()));
 
 
-bot.run("MTA5NTI4Mzk3NDQ5NjA1OTM5Mg.Gny7LH.9fKgG5NMt9sGU4bVgieMIarhLWy8elWn6ZbLN4");
+bot.run("token");
