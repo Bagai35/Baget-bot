@@ -9,7 +9,6 @@ bot = commands.InteractionBot();
 channelIDS = 1098290420250845254;
 
 #######################################################################################################################
-
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -30,7 +29,6 @@ async def on_member_remove(member):
     channel = bot.get_channel(channelIDS);
     await channel.send(
         embed=disnake.Embed(description=f'Пользователь {member} вышел из круга', color=disnake.Color.yellow()));
-
 
 
 @bot.slash_command(description="bot say 'Pong'")
@@ -64,7 +62,6 @@ async def neko_pic(ctx):
             await ctx.send(embed=embed)
 
 
-
 @bot.slash_command(description="18+ Neko")
 async def neko_hentai(ctx):
     if not ctx.channel.is_nsfw():
@@ -81,7 +78,6 @@ async def neko_hentai(ctx):
             await ctx.send(embed=embed)
 
 
-
 @bot.slash_command(description="Аватарка пользователя")
 async def avatar(ctx, user: disnake.Member):
     async with aiohttp.ClientSession() as session:
@@ -95,4 +91,7 @@ async def avatar(ctx, user: disnake.Member):
     embed.set_image(url=user.avatar.url)
 
     await ctx.send(embed=embed)
+    
+#######################################################################################################################    
+    
 bot.run('TOKEN')
