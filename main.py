@@ -71,5 +71,4 @@ async def neko_hentai(ctx):
 
 
 #######################################################################################################################
-#bot.run('MTA5ODYyMzg2OTMxODg3MzExOQ.GrD4hc.wmK8q4vqNtDEEAsiQh0aJwTKonF8yTOMkb7pas');
-bot.run('MTA5NTI4Mzk3NDQ5NjA1OTM5Mg.GluV3E.uVXXLRXnt1zdoJd4RjZIAWU8Pbv852gFvp7IJ0');
+bot.run('token');
