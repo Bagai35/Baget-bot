@@ -1,34 +1,21 @@
-import disnake, aiohttp, colorthief, io
+
+import disnake, aiohttp, colorthief, io, requests
+
 from disnake.ext import commands
-from dotenv import load_dotenv
-from io import BytesIO
+
+
 #######################################################################################################################
 
 bot = commands.InteractionBot();
 
-channelIDS = 1098290420250845254;
-
 #######################################################################################################################
+
 @bot.event
 async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-
-
-@bot.event
-async def on_member_join(member):
-    channel = bot.get_channel(channelIDS);
-    await channel.send(
-        embed=disnake.Embed(description=f'Пользователь {member} присел к костру', color=disnake.Color.yellow()));
-
-
-@bot.event
-async def on_member_remove(member):
-    channel = bot.get_channel(channelIDS);
-    await channel.send(
-        embed=disnake.Embed(description=f'Пользователь {member} вышел из круга', color=disnake.Color.yellow()));
 
 
 @bot.slash_command(description="bot say 'Pong'")
@@ -61,7 +48,7 @@ async def neko_pic(ctx):
 
             await ctx.send(embed=embed)
 
-
+'''
 @bot.slash_command(description="18+ Neko")
 async def neko_hentai(ctx):
     if not ctx.channel.is_nsfw():
@@ -77,21 +64,12 @@ async def neko_hentai(ctx):
 
             await ctx.send(embed=embed)
 
+'''
 
-@bot.slash_command(description="Аватарка пользователя")
-async def avatar(ctx, user: disnake.Member):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(str(user.avatar.url)) as resp:
-            if resp.status != 200:
-                return await ctx.send('Could not fetch the picture')
-            data = await resp.read()
-    color = colorthief.ColorThief(io.BytesIO(data)).get_color(quality=1)
-    embed_color = disnake.Colour.from_rgb(color[0], color[1], color[2])
-    embed = disnake.Embed(title=f"Аватарка {user.name} :3", color=embed_color)
-    embed.set_image(url=user.avatar.url)
 
-    await ctx.send(embed=embed)
-    
-#######################################################################################################################    
-    
-bot.run('TOKEN')
+
+
+
+#######################################################################################################################
+#bot.run('MTA5ODYyMzg2OTMxODg3MzExOQ.GrD4hc.wmK8q4vqNtDEEAsiQh0aJwTKonF8yTOMkb7pas');
+bot.run('MTA5NTI4Mzk3NDQ5NjA1OTM5Mg.GluV3E.uVXXLRXnt1zdoJd4RjZIAWU8Pbv852gFvp7IJ0');
